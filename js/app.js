@@ -1,3 +1,4 @@
+// todoList object represents the model of this app.
 var todoList = {
   todos: [],
   addTodo: function(todoText) {
@@ -12,8 +13,11 @@ var todoList = {
   deleteTodo: function(position) {
     this.todos.splice(position, 1);
   },
+  // Takes in todo item position and switches the boolean value of the completed status.
   toggleCompleted: function(position) {
+    // Grabs the todo item from the array and sets it to the todo variable.
     var todo = this.todos[position];
+    // Switches the boolean value of the completed status.
     todo.completed = !todo.completed;
   },
   toggleAll: function() {
@@ -39,6 +43,7 @@ var todoList = {
   }
 };
 
+// handlers object represents the controller of this app.
 var handlers = {
   addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
@@ -58,10 +63,15 @@ var handlers = {
     todoList.deleteTodo(position);
     view.displayTodos();
   },
+  // The controller for the todo item toggle
   toggleCompleted: function() {
+    // Grabs the toggle position input box and sets it to the toggleCompletedPositionInput variable.
     var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    // Grabs the toggleCompletedPositionInput's value, converts it to a number, and passes it to the todoList.toggleCompleted method as an argument. This line basically changes the boolean value of the completed status of the todo item.
     todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    // Clears out the toggle position input box so the user can enter another number next time.
     toggleCompletedPositionInput.value = '';
+    // Runs the view.displayTodos() to update the DOM so the user can see the changes.
     view.displayTodos();
   },
   toggleAll: function() {
@@ -70,6 +80,7 @@ var handlers = {
   }  
 };
 
+// view object represents the view of this app.
 var view = {
   displayTodos: function() {
     // grabs the <ul> element and sets it to todosUl variable.
