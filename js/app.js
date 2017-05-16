@@ -104,9 +104,9 @@ var view = {
     return deleteButton;
   },
   setUpEventListeners: function() {
-  	var todosUl = document.querySelector('ul');
+		var todosUl = document.querySelector('ul');
 
-    todosUl.addEventListener('click', function(event) {
+		todosUl.addEventListener('click', function(event) {
       // Get the element that was clicked on.
       var elementClicked = event.target;
 
