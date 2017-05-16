@@ -98,15 +98,15 @@ var view = {
     }, this);
   },
   createDeleteButton: function() {
-    var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.className = 'deleteButton';
-    return deleteButton;
+      var deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.className = 'deleteButton';
+      return deleteButton;
   },
   setUpEventListeners: function() {
-		var todosUl = document.querySelector('ul');
+    var todosUl = document.querySelector('ul');
 
-		todosUl.addEventListener('click', function(event) {
+    todosUl.addEventListener('click', function(event) {
       // Get the element that was clicked on.
       var elementClicked = event.target;
 
