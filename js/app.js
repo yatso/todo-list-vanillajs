@@ -70,12 +70,12 @@ var handlers = {
     view.displayTodos();
   },
   // The controller for the todo item toggle
-  toggleCompleted: function(position) {
+  toggleCompleted: function(toggleElement) {
     // Grabs the toggle position input box and sets it to the toggleCompletedPositionInput variable.
 //    var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
     // Grabs the toggleCompletedPositionInput's value, converts it to a number, and passes it to the todoList.toggleCompleted method as an argument. This line basically changes the boolean value of the completed status of the todo item.
 //    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
-    todoList.toggleCompleted(position);
+    todoList.toggleCompleted(toggleElement.parentNode.getAttribute('id'));
     
     // Clears out the toggle position input box so the user can enter another number next time.
 //    toggleCompletedPositionInput.value = '';
@@ -119,7 +119,7 @@ var view = {
       todoLi.id = position;
       
 //      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted()');
-      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(todoLi.id)');
+      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
       
       // Adds the built-up toggleCheckbox as a child of the <li> element.
       todoLi.appendChild(toggleCheckbox);
