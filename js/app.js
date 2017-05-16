@@ -1,4 +1,4 @@
-// todoList object represents the model of this app.
+//  todoList object represents the model of this app.
 var todoList = {
   todos: [],
   addTodo: function(todoText) {
@@ -13,18 +13,18 @@ var todoList = {
   deleteTodo: function(position) {
     this.todos.splice(position, 1);
   },
-  // Takes in todo item position and switches the boolean value of the completed status.
+  //  Takes in todo item position and switches the boolean value of the completed status.
   toggleCompleted: function(position) {
-    // Grabs the todo item from the array and sets it to the todo variable.
+    //  Grabs the todo item from the array and sets it to the todo variable.
     var todo = this.todos[position];
-    // Switches the boolean value of the completed status.
+    //  Switches the boolean value of the completed status.
     todo.completed = !todo.completed;
   },
   toggleAll: function() {
     var totalTodos = this.todos.length;
     var completedTodos = 0;
     
-    // Get number of completed todos.
+    //  Gets the number of completed todos.
     this.todos.forEach(function(todo) {
       if (todo.completed === true) {
         completedTodos++;
@@ -32,10 +32,10 @@ var todoList = {
     });
     
     this.todos.forEach(function(todo) {
-      // Case 1: If everything's true, make everything false.
+      //  Case 1: If everything's true, make everything false.
       if (completedTodos === totalTodos) {
         todo.completed = false;
-      // Case 2: Otherwise, make everything true.
+      //  Case 2: Otherwise, make everything true.
       } else {
         todo.completed = true;
       }
@@ -43,7 +43,7 @@ var todoList = {
   }
 };
 
-// handlers object represents the controller of this app.
+//  handlers object represents the controller of this app.
 var handlers = {
   addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
@@ -69,17 +69,12 @@ var handlers = {
     todoList.deleteTodo(position);
     view.displayTodos();
   },
-  // The controller for the todo item toggle
+  //  The controller for the todo item toggle. Takes the argument 'this' from the toggle check box in the DOM.
   toggleCompleted: function(toggleElement) {
-    // Grabs the toggle position input box and sets it to the toggleCompletedPositionInput variable.
-//    var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
-    // Grabs the toggleCompletedPositionInput's value, converts it to a number, and passes it to the todoList.toggleCompleted method as an argument. This line basically changes the boolean value of the completed status of the todo item.
-//    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    //  Gets the id from the parent (<li>) of the toggle check box and passes it to the toggleCompleted in the model. toggleCompleted switches the boolean value in the actual todo item object.
     todoList.toggleCompleted(toggleElement.parentNode.getAttribute('id'));
-    
-    // Clears out the toggle position input box so the user can enter another number next time.
-//    toggleCompletedPositionInput.value = '';
-    // Runs the view.displayTodos() to update the DOM so the user can see the changes.
+  
+    //  Runs the view.displayTodos() to update the DOM so the user can see the changes.
     view.displayTodos();
   },
   toggleAll: function() {
@@ -88,49 +83,49 @@ var handlers = {
   }  
 };
 
-// view object represents the view of this app.
+//  view object represents the view of this app.
 var view = {
   displayTodos: function() {
-    // grabs the <ul> element and sets it to todosUl variable.
+    //  grabs the <ul> element and sets it to todosUl variable.
     var todosUl = document.querySelector('ul');
-    // Clears out the content inside <ul> to make sure we're starting clean.
+    //  Clears out the content inside <ul> to make sure we're starting clean.
     todosUl.innerHTML = '';
     
-    // Note that the 'this' argument in the forEach method is to bind 'this' for the callback function so it has access to the view object inside the callback.
+    //  Note that the 'this' argument in the forEach method is to bind 'this' for the callback function so it has access to the view object inside the callback.
     todoList.todos.forEach(function(todo, position) {
-      // Creates an li element
+      //  Creates an li element
       var todoLi = document.createElement('li');
       
-      // Builds the checkbox
+      //  Builds the checkbox
       var toggleCheckbox = document.createElement('input');
       toggleCheckbox.type = 'checkbox';
       
-      // Builds the todo item text 
+      //  Builds the todo item text 
       var todoTextNode = document.createTextNode(todo.todoText);
       
-      // Displays checked or unchecked for checkbox depending on todo item completed status.
+      //  Sets the position of the forEach loop as the id for the todoLi element we're building.
+      todoLi.id = position;
+      
+      //  Displays checked or unchecked for checkbox depending on todo item completed status.
       if (todo.completed === true) {
         toggleCheckbox.checked = true;
       } else {
         toggleCheckbox.checked = false;
       }
       
-      // Sets the position of the forEach loop as the id for the todoLi element we're building.
-      todoLi.id = position;
-      
-//      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted()');
+      //  Sets the event handler attribute on the toggleCheckbox input element.
       toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
       
-      // Adds the built-up toggleCheckbox as a child of the <li> element.
+      //  Adds the built-up toggleCheckbox as a child of the <li> element.
       todoLi.appendChild(toggleCheckbox);
       
-      // Adds the built-up todo text as a child of the <li> element.
+      //  Adds the built-up todo text as a child of the <li> element.
       todoLi.appendChild(todoTextNode);
       
-      // Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
+      //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
       
-      // Adds the finalized <li> element as a child of the <ul> element.
+      //  Adds the finalized <li> element as a child of the <ul> element.
       todosUl.appendChild(todoLi);
     }, this);
   },
@@ -144,10 +139,10 @@ var view = {
     var todosUl = document.querySelector('ul');
 
     todosUl.addEventListener('click', function(event) {
-      // Get the element that was clicked on.
+      //  Get the element that was clicked on.
       var elementClicked = event.target;
 
-      // Check if elementClicked is a delete button.
+      //  Check if elementClicked is a delete button.
       if (elementClicked.className === 'deleteButton') {
         handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
       }
