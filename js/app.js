@@ -98,23 +98,36 @@ var view = {
     todoList.todos.forEach(function(todo, position) {
       // Creates an li element
       var todoLi = document.createElement('li');
-      // Initialize todoTextWithCompletion to empty string.
-      var todoTextWithCompletion = '';
       
-      // Builds the artificial checkboxes and the actual todo item text.
+      // Builds the checkbox
+      var toggleCheckbox = document.createElement('input');
+      toggleCheckbox.type = 'checkbox';
+      
+      // Builds the todo item text 
+      var todoTextNode = document.createTextNode(todo.todoText);
+      
+      // Displays checked or unchecked for checkbox depending on todo item completed status.
       if (todo.completed === true) {
-        todoTextWithCompletion = '(x) ' + todo.todoText;
+        toggleCheckbox.checked = true;
       } else {
-        todoTextWithCompletion = '( ) ' + todo.todoText;
+        toggleCheckbox.checked = false;
       }
       
       // Sets the position of the forEach loop as the id for the todoLi element we're building.
       todoLi.id = position;
-      // Sets the artificial checkboxes and the actual todo item text to the inside of the created <li> element." <li>todoLi.textContent</li>"
-      todoLi.textContent = todoTextWithCompletion;
+      
+      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted()');
+      
+      // Adds the built-up toggleCheckbox as a child of the <li> element.
+      todoLi.appendChild(toggleCheckbox);
+      
+      // Adds the built-up todo text as a child of the <li> element.
+      todoLi.appendChild(todoTextNode);
+      
       // Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
-      // Adds the finalized <li> element as a child to the <ul> element.
+      
+      // Adds the finalized <li> element as a child of the <ul> element.
       todosUl.appendChild(todoLi);
     }, this);
   },
