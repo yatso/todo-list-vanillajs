@@ -40,11 +40,17 @@ var todoList = {
 };
 
 var handlers = {
-  addTodo: function() {
+    addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
     todoList.addTodo(addTodoTextInput.value);
     addTodoTextInput.value = '';
     view.displayTodos();
+  },
+    addTodoEntered: function() {
+    var inputElement = document.getElementById("addTodoTextInput");
+    if(inputElement.value && event.keyCode === 13) {
+    this.addTodo();
+    }
   },
   changeTodo: function() {
     var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
@@ -98,9 +104,9 @@ var view = {
     return deleteButton;
   },
   setUpEventListeners: function() {
-    var todosUl = document.querySelector('ul');
+      var todosUl = document.querySelector('ul');
     
-    todosUl.addEventListener('click', function(event) {
+      todosUl.addEventListener('click', function(event) {
       // Get the element that was clicked on.
       var elementClicked = event.target;
       
