@@ -40,13 +40,13 @@ var todoList = {
 };
 
 var handlers = {
-    addTodo: function() {
+  addTodo: function() {
     var addTodoTextInput = document.getElementById('addTodoTextInput');
     todoList.addTodo(addTodoTextInput.value);
     addTodoTextInput.value = '';
     view.displayTodos();
   },
-    addTodoEntered: function() {
+  addTodoEntered: function() {
     var inputElement = document.getElementById("addTodoTextInput");
     if(inputElement.value && event.keyCode === 13) {
     this.addTodo();
