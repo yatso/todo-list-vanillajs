@@ -46,6 +46,12 @@ var handlers = {
     addTodoTextInput.value = '';
     view.displayTodos();
   },
+  addTodoEntered: function() {
+    var inputElement = document.getElementById("addTodoTextInput");
+    if (inputElement.value && event.keyCode === 13) {
+      this.addTodo();
+    }
+  },
   changeTodo: function() {
     var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
     var changeTodoTextInput = document.getElementById('changeTodoTextInput');
@@ -99,11 +105,11 @@ var view = {
   },
   setUpEventListeners: function() {
     var todosUl = document.querySelector('ul');
-    
+
     todosUl.addEventListener('click', function(event) {
       // Get the element that was clicked on.
       var elementClicked = event.target;
-      
+
       // Check if elementClicked is a delete button.
       if (elementClicked.className === 'deleteButton') {
         handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
