@@ -110,11 +110,11 @@ var view = {
       toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
       
 			// Builds the editBox
-			var editBox = document.createElement('input');
+      var editBox = document.createElement('input');
       editBox.classList.add('editBox','hide');
       editBox.type = 'text';
-			editBox.value = todo.todoText;
-			editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
+      editBox.value = todo.todoText;
+      editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
 			
       // Builds the todo item text label
       var todoItemLabel = document.createElement('label');
