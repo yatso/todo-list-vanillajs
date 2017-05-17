@@ -61,16 +61,16 @@ var handlers = {
     var id = editInputElement.parentNode.getAttribute('id');
     var newEditInputValue = editInputElement.value;
     if (editInputElement.value && event.keyCode === 13) {
-			this.changeTodo(id, newEditInputValue);
-			return;
-		} 
+      this.changeTodo(id, newEditInputValue);
+      return;
+    }
   },
-	editFocusOut: function(editInputElement) {
+  editFocusOut: function(editInputElement) {
     var id = editInputElement.parentNode.getAttribute('id');
     var newEditInputValue = editInputElement.value;
-		if (editInputElement.value) {
-			this.changeTodo(id, newEditInputValue);
-			return;
+    if (editInputElement.value) {
+      this.changeTodo(id, newEditInputValue);
+      return;
     }
   },
   changeTodo: function(id, value) {
@@ -97,7 +97,7 @@ var handlers = {
   toggleAll: function() {
     todoList.toggleAll();
     view.displayTodos();
-  }  
+  }
 };
 
 //  view object represents the view of this app.
@@ -122,10 +122,10 @@ var view = {
       var editBox = document.createElement('input');
       editBox.classList.add('editBox','hide');
       editBox.type = 'text';
-			editBox.value = todo.todoText;
-			editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
-			editBox.setAttribute('onfocusout', 'handlers.editFocusOut(this)');
-			
+      editBox.value = todo.todoText;
+      editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
+      editBox.setAttribute('onfocusout', 'handlers.editFocusOut(this)');
+      
       // Builds the todo item text label
       var todoItemLabel = document.createElement('label');
       todoItemLabel.setAttribute('ondblclick', 'handlers.editingMode(this)');
