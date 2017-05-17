@@ -136,7 +136,7 @@ var view = {
       //  Adds the built-up todo item label as a child of the <li> element.
       todoLi.appendChild(todoItemLabel);
       // Add the text box with todos text after the todo text node.
-			todoLi.appendChild(editBox);
+      todoLi.appendChild(editBox);
       //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
       //  Adds the finalized <li> element as a child of the <ul> element.
