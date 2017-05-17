@@ -57,12 +57,22 @@ var handlers = {
       this.addTodo();
     }
   },
-  changeTodo: function() {
-    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
-    var changeTodoTextInput = document.getElementById('changeTodoTextInput');
-    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
-    changeTodoPositionInput.value = '';
-    changeTodoTextInput.value = '';
+	changeEntered: function(editInputElement) {
+//    var inputElement = document.getElementsByClassName("editBoxClass");
+			var id = editInputElement.parentNode.getAttribute('id');
+			var newEditInputValue = editInputElement.value;
+    if (editInputElement.value && event.keyCode === 13) {
+      this.changeTodo(id, newEditInputValue);
+    }
+  },
+  changeTodo: function(id, value) {
+//    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+//    var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+//    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+//    changeTodoPositionInput.value = '';
+//    changeTodoTextInput.value = '';
+//    view.displayTodos();
+    todoList.changeTodo(id, value);
     view.displayTodos();
   },
   deleteTodo: function(position) {
@@ -100,6 +110,13 @@ var view = {
       var toggleCheckbox = document.createElement('input');
       toggleCheckbox.type = 'checkbox';
       
+			// Builds the editBox
+			var editBox = document.createElement('input');
+      editBox.type = 'text';
+			editBox.value = todo.todoText;
+			editBox.className = 'editBoxClass';
+			editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
+			
       //  Builds the todo item text 
       var todoTextNode = document.createTextNode(todo.todoText);
       
@@ -122,6 +139,8 @@ var view = {
       //  Adds the built-up todo text as a child of the <li> element.
       todoLi.appendChild(todoTextNode);
       
+			// Add the text box with todos text after the todo text node.
+			todoLi.appendChild(editBox);
       //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
       
