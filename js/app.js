@@ -58,20 +58,13 @@ var handlers = {
     }
   },
 	changeEntered: function(editInputElement) {
-//    var inputElement = document.getElementsByClassName("editBoxClass");
-			var id = editInputElement.parentNode.getAttribute('id');
-			var newEditInputValue = editInputElement.value;
+    var id = editInputElement.parentNode.getAttribute('id');
+    var newEditInputValue = editInputElement.value;
     if (editInputElement.value && event.keyCode === 13) {
       this.changeTodo(id, newEditInputValue);
     }
   },
   changeTodo: function(id, value) {
-//    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
-//    var changeTodoTextInput = document.getElementById('changeTodoTextInput');
-//    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
-//    changeTodoPositionInput.value = '';
-//    changeTodoTextInput.value = '';
-//    view.displayTodos();
     todoList.changeTodo(id, value);
     view.displayTodos();
   },
@@ -114,7 +107,6 @@ var view = {
 			var editBox = document.createElement('input');
       editBox.type = 'text';
 			editBox.value = todo.todoText;
-			editBox.className = 'editBoxClass';
 			editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
 			
       //  Builds the todo item text 
