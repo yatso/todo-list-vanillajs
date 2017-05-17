@@ -57,7 +57,7 @@ var handlers = {
       this.addTodo();
     }
   },
-	changeEntered: function(editInputElement) {
+  changeEntered: function(editInputElement) {
     var id = editInputElement.parentNode.getAttribute('id');
     var newEditInputValue = editInputElement.value;
     if (editInputElement.value && event.keyCode === 13) {
@@ -109,7 +109,7 @@ var view = {
       toggleCheckbox.type = 'checkbox';
       toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
       
-			// Builds the editBox
+      // Builds the editBox
       var editBox = document.createElement('input');
       editBox.classList.add('editBox','hide');
       editBox.type = 'text';
@@ -135,7 +135,7 @@ var view = {
       todoLi.appendChild(toggleCheckbox);
       //  Adds the built-up todo item label as a child of the <li> element.
       todoLi.appendChild(todoItemLabel);
-			// Add the text box with todos text after the todo text node.
+      // Add the text box with todos text after the todo text node.
 			todoLi.appendChild(editBox);
       //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
