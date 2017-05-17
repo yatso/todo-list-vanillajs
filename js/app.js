@@ -72,6 +72,11 @@ var handlers = {
     todoList.deleteTodo(position);
     view.displayTodos();
   },
+  editingMode: function(todoLabelElement) {
+    var editBoxElement = todoLabelElement.parentNode.querySelector('.editBox');
+    view.toggleHide(todoLabelElement);
+    view.toggleHide(editBoxElement);
+  },
   //  The controller for the todo item toggle. Takes the argument 'this' from the toggle check box in the DOM.
   toggleCompleted: function(toggleElement) {
     //  Gets the id from the parent (<li>) of the toggle check box and passes it to the toggleCompleted in the model. toggleCompleted switches the boolean value in the actual todo item object.
@@ -102,15 +107,19 @@ var view = {
       //  Builds the checkbox
       var toggleCheckbox = document.createElement('input');
       toggleCheckbox.type = 'checkbox';
+      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
       
 			// Builds the editBox
 			var editBox = document.createElement('input');
+      editBox.classList.add('editBox','hide');
       editBox.type = 'text';
 			editBox.value = todo.todoText;
 			editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
 			
-      //  Builds the todo item text 
-      var todoTextNode = document.createTextNode(todo.todoText);
+      // Builds the todo item text label
+      var todoItemLabel = document.createElement('label');
+      todoItemLabel.setAttribute('ondblclick', 'handlers.editingMode(this)');
+      todoItemLabel.textContent = todo.todoText;
       
       //  Sets the position of the forEach loop as the id for the todoLi element we're building.
       todoLi.id = position;
@@ -122,23 +131,21 @@ var view = {
         toggleCheckbox.checked = false;
       }
       
-      //  Sets the event handler attribute on the toggleCheckbox input element.
-      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
-      
       //  Adds the built-up toggleCheckbox as a child of the <li> element.
       todoLi.appendChild(toggleCheckbox);
-      
-      //  Adds the built-up todo text as a child of the <li> element.
-      todoLi.appendChild(todoTextNode);
-      
+      //  Adds the built-up todo item label as a child of the <li> element.
+      todoLi.appendChild(todoItemLabel);
 			// Add the text box with todos text after the todo text node.
 			todoLi.appendChild(editBox);
       //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
-      
       //  Adds the finalized <li> element as a child of the <ul> element.
       todosUl.appendChild(todoLi);
     }, this);
+  },
+  toggleHide: function(selectedElement) {
+    //  Toggles the hide class which shows or hides the element being passed in.
+    selectedElement.classList.toggle('hide');
   },
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');
