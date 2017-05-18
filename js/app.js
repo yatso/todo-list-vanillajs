@@ -71,6 +71,8 @@ var handlers = {
     if (editInputElement.value) {
       this.changeTodo(id, newEditInputValue);
       return;
+    } else {
+      handlers.deleteTodo(id);
     }
   },
   changeTodo: function(id, value) {
