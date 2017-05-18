@@ -57,7 +57,7 @@ var handlers = {
       this.addTodo();
     }
   },
-  changeEntered: function(editInputElement) {
+  editKeyup: function(editInputElement) {
     var id = editInputElement.parentNode.getAttribute('id');
     var newEditInputValue = editInputElement.value;
     if (editInputElement.value && event.keyCode === 13) {
@@ -131,7 +131,7 @@ var view = {
       editBox.classList.add('editBox','hide');
       editBox.type = 'text';
       editBox.value = todo.todoText;
-      editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
+      editBox.setAttribute('onkeyup', 'handlers.editKeyup(this)');
       editBox.setAttribute('onfocusout', 'handlers.editFocusOut(this)');
       
       //  Builds the todo item text label
