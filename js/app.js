@@ -1,7 +1,7 @@
-//  todoList object represents the model of this app.
-var todoList = {
+//  todoModel object represents the model of this app.
+var todoModel = {
   todos: [],
-  addTodo: function(todoText) {
+  createTodo: function(todoText) {
     this.todos.push({
       todoText: todoText,
       completed: false
@@ -43,67 +43,67 @@ var todoList = {
   }
 };
 
-//  handlers object represents the controller of this app.
-var handlers = {
-  addTodo: function() {
-    var addTodoTextInput = document.getElementById('addTodoTextInput');
-    todoList.addTodo(addTodoTextInput.value);
-    addTodoTextInput.value = '';
+//  controller object represents the controller of this app.
+var controller = {
+  createTodo: function() {
+    var createTodoTextInput = document.getElementById('createTodoTextInput');
+    todoModel.createTodo(createTodoTextInput.value);
+    createTodoTextInput.value = '';
     view.displayTodos();
   },
-  addTodoEntered: function() {
-    var inputElement = document.getElementById("addTodoTextInput");
+  createTodoEntered: function() {
+    var inputElement = document.getElementById("createTodoTextInput");
     if (inputElement.value && event.keyCode === 13) {
-      this.addTodo();
+      this.createTodo();
     }
   },
-  changeEntered: function(editInputElement) {
-    var id = editInputElement.parentNode.getAttribute('id');
-    var newEditInputValue = editInputElement.value;
-    if (editInputElement.value && event.keyCode === 13) {
-      this.changeTodo(id, newEditInputValue);
+  updateKeyup: function(updateInputElement) {
+    var id = updateInputElement.parentNode.getAttribute('id');
+    var newUpdateInputValue = updateInputElement.value;
+    if (updateInputElement.value && event.keyCode === 13) {
+      this.changeTodo(id, newUpdateInputValue);
       return;
     }
     if (event.keyCode === 27) {
-      //  Very important line. If the editInputElement.value is not reset to the original value, then editFocusOut method would still run and update the data even when esc key is pressed.
-      editInputElement.value = todoList.todos[id].todoText;
+      //  Very important line. If the updateInputElement.value is not reset to the original value, then updateFocusOut method would still run and update the data even when esc key is pressed.
+      updateInputElement.value = todoModel.todos[id].todoText;
       view.displayTodos();
       return;
     }
   },
-  editFocusOut: function(editInputElement) {
-    var id = editInputElement.parentNode.getAttribute('id');
-    var newEditInputValue = editInputElement.value;
-    if (editInputElement.value) {
-      this.changeTodo(id, newEditInputValue);
+  updateFocusOut: function(updateInputElement) {
+    var id = updateInputElement.parentNode.getAttribute('id');
+    var newUpdateInputValue = updateInputElement.value;
+    if (updateInputElement.value) {
+      this.changeTodo(id, newUpdateInputValue);
       return;
     } else {
-      handlers.deleteTodo(id);
+      controller.deleteTodo(id);
     }
   },
   changeTodo: function(id, value) {
-    todoList.changeTodo(id, value);
+    todoModel.changeTodo(id, value);
     view.displayTodos();
   },
   deleteTodo: function(position) {
-    todoList.deleteTodo(position);
+    todoModel.deleteTodo(position);
     view.displayTodos();
   },
-  editingMode: function(todoLabelElement) {
-    var editBoxElement = todoLabelElement.parentNode.querySelector('.editBox');
+  updatingMode: function(todoLabelElement) {
+    var updateBoxElement = todoLabelElement.parentNode.querySelector('.updateBox');
     view.toggleHide(todoLabelElement);
-    view.toggleHide(editBoxElement);
+    view.toggleHide(updateBoxElement);
   },
   //  The controller for the todo item toggle. Takes the argument 'this' from the toggle check box in the DOM.
   toggleCompleted: function(toggleElement) {
     //  Gets the id from the parent (<li>) of the toggle check box and passes it to the toggleCompleted in the model. toggleCompleted switches the boolean value in the actual todo item object.
-    todoList.toggleCompleted(toggleElement.parentNode.getAttribute('id'));
+    todoModel.toggleCompleted(toggleElement.parentNode.getAttribute('id'));
   
     //  Runs the view.displayTodos() to update the DOM so the user can see the changes.
     view.displayTodos();
   },
   toggleAll: function() {
-    todoList.toggleAll();
+    todoModel.toggleAll();
     view.displayTodos();
   }
 };
@@ -117,26 +117,26 @@ var view = {
     todosUl.innerHTML = '';
     
     //  Note that the 'this' argument in the forEach method is to bind 'this' for the callback function so it has access to the view object inside the callback.
-    todoList.todos.forEach(function(todo, position) {
+    todoModel.todos.forEach(function(todo, position) {
       //  Creates an li element
       var todoLi = document.createElement('li');
       
       //  Builds the checkbox
       var toggleCheckbox = document.createElement('input');
       toggleCheckbox.type = 'checkbox';
-      toggleCheckbox.setAttribute('onchange', 'handlers.toggleCompleted(this)');
+      toggleCheckbox.setAttribute('onchange', 'controller.toggleCompleted(this)');
       
-      //  Builds the editBox
-      var editBox = document.createElement('input');
-      editBox.classList.add('editBox','hide');
-      editBox.type = 'text';
-      editBox.value = todo.todoText;
-      editBox.setAttribute('onkeyup', 'handlers.changeEntered(this)');
-      editBox.setAttribute('onfocusout', 'handlers.editFocusOut(this)');
+      //  Builds the updateBox
+      var updateBox = document.createElement('input');
+      updateBox.classList.add('updateBox','hide');
+      updateBox.type = 'text';
+      updateBox.value = todo.todoText;
+      updateBox.setAttribute('onkeyup', 'controller.updateKeyup(this)');
+      updateBox.setAttribute('onfocusout', 'controller.updateFocusOut(this)');
       
       //  Builds the todo item text label
       var todoItemLabel = document.createElement('label');
-      todoItemLabel.setAttribute('ondblclick', 'handlers.editingMode(this)');
+      todoItemLabel.setAttribute('ondblclick', 'controller.updatingMode(this)');
       todoItemLabel.textContent = todo.todoText;
       
       //  Sets the position of the forEach loop as the id for the todoLi element we're building.
@@ -154,7 +154,7 @@ var view = {
       //  Adds the built-up todo item label as a child of the <li> element.
       todoLi.appendChild(todoItemLabel);
       //  Add the text box with todos text after the todo text node.
-      todoLi.appendChild(editBox);
+      todoLi.appendChild(updateBox);
       //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
       //  Adds the finalized <li> element as a child of the <ul> element.
@@ -180,7 +180,7 @@ var view = {
 
       //  Check if elementClicked is a delete button.
       if (elementClicked.className === 'deleteButton') {
-        handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+        controller.deleteTodo(parseInt(elementClicked.parentNode.id));
       }
     });
   }
