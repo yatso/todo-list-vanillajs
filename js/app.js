@@ -64,6 +64,12 @@ var handlers = {
       this.changeTodo(id, newEditInputValue);
       return;
     }
+    if (event.keyCode === 27) {
+      //  Very important line. If the editInputElement.value is not reset to the original value, then editFocusOut method would still run and update the data even when esc key is pressed.
+      editInputElement.value = todoList.todos[id].todoText;
+      view.displayTodos();
+      return;
+    }
   },
   editFocusOut: function(editInputElement) {
     var id = editInputElement.parentNode.getAttribute('id');
@@ -71,6 +77,8 @@ var handlers = {
     if (editInputElement.value) {
       this.changeTodo(id, newEditInputValue);
       return;
+    } else {
+      handlers.deleteTodo(id);
     }
   },
   changeTodo: function(id, value) {
