@@ -1,3 +1,7 @@
+//  Global variables declared for enter and escape keys.
+var enter_key = 13;
+var esc_key = 27;
+
 //  todoModel object represents the model of this app.
 var todoModel = {
   todos: [],
@@ -53,18 +57,18 @@ var controller = {
   },
   createTodoEntered: function() {
     var inputElement = document.getElementById("createTodoTextInput");
-    if (inputElement.value && event.keyCode === 13) {
+    if (inputElement.value && event.keyCode === enter_key) {
       this.createTodo();
     }
   },
   updateKeyup: function(updateInputElement) {
     var id = updateInputElement.parentNode.getAttribute('id');
     var newUpdateInputValue = updateInputElement.value;
-    if (updateInputElement.value && event.keyCode === 13) {
+    if (updateInputElement.value && event.keyCode === enter_key) {
       this.changeTodo(id, newUpdateInputValue);
       return;
     }
-    if (event.keyCode === 27) {
+    if (event.keyCode === esc_key) {
       //  Very important line. If the updateInputElement.value is not reset to the original value, then updateFocusOut method would still run and update the data even when esc key is pressed.
       updateInputElement.value = todoModel.todos[id].todoText;
       view.displayTodos();
