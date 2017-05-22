@@ -8,17 +8,17 @@
 <body>
 <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div>
+  <div class="todo-container">
     <h1>Todo List</h1>
-    <div>
-      <button onclick="controller.toggleAll()">Toggle All</button>
-    </div>
-    <div>
-      <button onclick="controller.createTodo()">Add</button>
-      <input id="createTodoTextInput" type="text" onkeyup="controller.createTodoEntered()">
-    </div>
-    <div>
-      <ul></ul>
+    <div class="main-section">
+      <div>
+        <button onclick="controller.toggleAll()">^</button>
+        <input id="createTodoTextInput" type="text" onkeyup="controller.createTodoEntered()">
+        <button onclick="controller.createTodo()">Add</button>
+      </div>
+      <div>
+        <ul></ul>
+      </div>
     </div>
   </div>
   <!--javascript file links -->
