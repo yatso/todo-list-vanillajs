@@ -15,6 +15,10 @@
   text-align: left;
 }
 
+.todos-strikethrough {
+  text-decoration: line-through;
+}
+
 ul {
   list-style: none;
   padding: 0;

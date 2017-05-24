@@ -147,11 +147,17 @@ var view = {
       updateBox.setAttribute('onkeyup', 'controller.updateKeyup(this)');
       updateBox.setAttribute('onfocusout', 'controller.updateFocusOut(this)');
       
-      
       //  Builds the todo item text label
       var todoItemLabel = document.createElement('label');
       todoItemLabel.setAttribute('ondblclick', 'controller.updatingMode(this)');
       todoItemLabel.textContent = todo.todoText;
+      
+      //  Toggles the strikethrough class when user clicks checkbox or toggle all.
+      if (todo.completed === true) {
+        todoItemLabel.classList.add('todos-strikethrough');
+      } else {
+        todoItemLabel.classList.remove('todos-strikethrough');
+      }
       
       //  Sets the position of the forEach loop as the id for the todoLi element we're building.
       todoLi.id = position;
