@@ -6,8 +6,9 @@ var esc_key = 27;
 var todoModel = {
   todos: [],
   createTodo: function(todoText) {
+    var trimmedTodoText = todoText.trim();
     this.todos.push({
-      todoText: todoText,
+      todoText: trimmedTodoText,
       completed: false
     });
   },
@@ -63,7 +64,7 @@ var controller = {
   },
   updateKeyup: function(updateInputElement) {
     var id = updateInputElement.parentNode.getAttribute('id');
-    var newUpdateInputValue = updateInputElement.value;
+    var newUpdateInputValue = updateInputElement.value.trim();
     if (updateInputElement.value && event.keyCode === enter_key) {
       this.changeTodo(id, newUpdateInputValue);
       return;
@@ -137,6 +138,7 @@ var view = {
       updateBox.value = todo.todoText;
       updateBox.setAttribute('onkeyup', 'controller.updateKeyup(this)');
       updateBox.setAttribute('onfocusout', 'controller.updateFocusOut(this)');
+      
       
       //  Builds the todo item text label
       var todoItemLabel = document.createElement('label');
