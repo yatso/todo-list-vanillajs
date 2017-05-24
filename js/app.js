@@ -6,12 +6,19 @@ var esc_key = 27;
 var todoModel = {
   todos: [],
   createTodo: function(todoText) {
+    var alertBox = document.getElementById('alert-box');
     //  We trim the users todo input before adding it to our data array.
     var trimmedTodoText = todoText.trim();
-    this.todos.push({
-      todoText: trimmedTodoText,
-      completed: false
-    });
+    if (trimmedTodoText) {
+      this.todos.push({
+        todoText: trimmedTodoText,
+        completed: false
+      });
+      alertBox.textContent = '';
+    } else {
+      alertBox.textContent = 'Please enter something';
+      setTimeout(function(){ alertBox.textContent = ''; }, 3000);
+    }
   },
   changeTodo: function(position, todoText) {
     this.todos[position].todoText = todoText;
