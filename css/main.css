@@ -1,3 +1,25 @@
 .hide {
   display: none;
 }
+
+.todo-container {
+  height: 600px;
+  width: 400px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.main-section {
+  width: 300px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+* {
+ border: 1px dashed black;
+}

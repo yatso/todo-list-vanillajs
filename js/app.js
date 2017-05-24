@@ -1,9 +1,15 @@
+//  Global variables declared for enter and escape keys.
+var enter_key = 13;
+var esc_key = 27;
+
 //  todoModel object represents the model of this app.
 var todoModel = {
   todos: [],
   createTodo: function(todoText) {
+    //  We trim the users todo input before adding it to our data array.
+    var trimmedTodoText = todoText.trim();
     this.todos.push({
-      todoText: todoText,
+      todoText: trimmedTodoText,
       completed: false
     });
   },
@@ -53,18 +59,18 @@ var controller = {
   },
   createTodoEntered: function() {
     var inputElement = document.getElementById("createTodoTextInput");
-    if (inputElement.value && event.keyCode === 13) {
+    if (inputElement.value && event.keyCode === enter_key) {
       this.createTodo();
     }
   },
   updateKeyup: function(updateInputElement) {
     var id = updateInputElement.parentNode.getAttribute('id');
     var newUpdateInputValue = updateInputElement.value;
-    if (updateInputElement.value && event.keyCode === 13) {
+    if (updateInputElement.value && event.keyCode === enter_key) {
       this.changeTodo(id, newUpdateInputValue);
       return;
     }
-    if (event.keyCode === 27) {
+    if (event.keyCode === esc_key) {
       //  Very important line. If the updateInputElement.value is not reset to the original value, then updateFocusOut method would still run and update the data even when esc key is pressed.
       updateInputElement.value = todoModel.todos[id].todoText;
       view.displayTodos();
@@ -134,6 +140,7 @@ var view = {
       updateBox.setAttribute('onkeyup', 'controller.updateKeyup(this)');
       updateBox.setAttribute('onfocusout', 'controller.updateFocusOut(this)');
       
+      
       //  Builds the todo item text label
       var todoItemLabel = document.createElement('label');
       todoItemLabel.setAttribute('ondblclick', 'controller.updatingMode(this)');
@@ -167,7 +174,7 @@ var view = {
   },
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
+    deleteButton.textContent = 'X';
     deleteButton.className = 'deleteButton';
     return deleteButton;
   },
