@@ -6,6 +6,7 @@ var esc_key = 27;
 var todoModel = {
   todos: [],
   createTodo: function(todoText) {
+    //  We trim the users todo input before adding it to our data array.
     var trimmedTodoText = todoText.trim();
     this.todos.push({
       todoText: trimmedTodoText,
@@ -64,7 +65,7 @@ var controller = {
   },
   updateKeyup: function(updateInputElement) {
     var id = updateInputElement.parentNode.getAttribute('id');
-    var newUpdateInputValue = updateInputElement.value.trim();
+    var newUpdateInputValue = updateInputElement.value;
     if (updateInputElement.value && event.keyCode === enter_key) {
       this.changeTodo(id, newUpdateInputValue);
       return;
