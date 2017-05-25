@@ -53,6 +53,9 @@ var todoModel = {
         todo.completed = true;
       }
     });
+  },
+  isMobileDevice: function() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
   }
 };
 
@@ -107,6 +110,12 @@ var controller = {
     view.toggleHide(todoLabelElement);
     view.toggleHide(updateBoxElement);
   },
+  mobileUpdatingMode: function(editButtonElement) {
+    var updateBoxElement = editButtonElement.parentNode.querySelector('.updateBox');
+    var todoLabelElement = editButtonElement.parentNode.querySelector('.todoLabel');
+    view.toggleHide(todoLabelElement);
+    view.toggleHide(updateBoxElement);
+  },
   //  The controller for the todo item toggle. Takes the argument 'this' from the toggle check box in the DOM.
   toggleCompleted: function(toggleElement) {
     //  Gets the id from the parent (<li>) of the toggle check box and passes it to the toggleCompleted in the model. toggleCompleted switches the boolean value in the actual todo item object.
@@ -151,6 +160,18 @@ var view = {
       var todoItemLabel = document.createElement('label');
       todoItemLabel.setAttribute('ondblclick', 'controller.updatingMode(this)');
       todoItemLabel.textContent = todo.todoText;
+      todoItemLabel.classList.add('todoLabel');
+      
+      //  Builds the mobile edit button
+      var mobileEditButton = document.createElement('button');
+      mobileEditButton.setAttribute('onclick', 'controller.mobileUpdatingMode(this)');
+      mobileEditButton.textContent = 'Edit';
+      mobileEditButton.classList.add('hide', 'editButton');
+      
+      //  Removes hide class on mobile edit button if mobile is detected as true
+      if (todoModel.isMobileDevice()) {
+        mobileEditButton.classList.remove('hide');
+      }
       
       //  Toggles the strikethrough class when user clicks checkbox or toggle all.
       if (todo.completed === true) {
@@ -175,6 +196,8 @@ var view = {
       todoLi.appendChild(todoItemLabel);
       //  Add the text box with todos text after the todo text node.
       todoLi.appendChild(updateBox);
+      // Add the mobile edit button here
+      todoLi.appendChild(mobileEditButton);
       //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
       todoLi.appendChild(this.createDeleteButton());
       //  Adds the finalized <li> element as a child of the <ul> element.
@@ -207,3 +230,5 @@ var view = {
 };
 
 view.setUpEventListeners();
+
+
