@@ -215,5 +215,3 @@ var view = {
 };
 
 view.setUpEventListeners();
-
-
