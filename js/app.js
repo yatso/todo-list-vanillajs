@@ -82,6 +82,7 @@ var controller = {
     if (inputElement.value && event.keyCode === enter_key) {
       this.createTodo();
     }
+    view.displayTodos();
   },
   updateKeyup: function(updateInputElement) {
     var id = updateInputElement.parentNode.getAttribute('id');
@@ -199,12 +200,20 @@ var view = {
       //  Adds the finalized <li> element as a child of the <ul> element.
       todosUl.appendChild(todoLi);
     }, this);
-    // Shows the toggleAll button if there's at least one todo. Hides it if there's no todos.
+    //  Shows the toggleAll button if there's at least one todo. Hides it if there's no todos.
     var toggleAllButton = document.querySelector('#toggle-all-btn');
     if (todoModel.countTodos().totalTodos > 0) {
       toggleAllButton.classList.remove('hide');
     } else {
       toggleAllButton.classList.add('hide');
+    }
+    //  Shows the create todo button if user types something. Once user removes their input or enter a new todo, it will disappear.
+    var createTodoButton = document.querySelector('#create-todo-btn');
+    var inputElement = document.getElementById("createTodoTextInput");
+    if (inputElement.value) {
+      createTodoButton.classList.remove('hide');
+    } else {
+      createTodoButton.classList.add('hide');
     }
   },
   toggleHide: function(selectedElement) {
