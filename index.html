@@ -12,7 +12,7 @@
     <h1>Todo List</h1>
     <div class="main-section">
       <div class="todos-create-box">
-        <button class="toggle-all-btn" onclick="controller.toggleAll()">^</button>
+        <button id="toggle-all-btn" class="hide" onclick="controller.toggleAll()">^</button>
         <input id="createTodoTextInput" type="text" onkeyup="controller.createTodoEntered()">
         <button class="create-todo-btn" onclick="controller.createTodo()">+</button>
         <div id="alert-box"></div>

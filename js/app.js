@@ -4,6 +4,17 @@ var esc_key = 27;
 //  todoModel object represents the model of this app.
 var todoModel = {
   todos: [],
+  countTodos: function() {
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    //  Gets the number of completed todos.
+    this.todos.forEach(function(todo) {
+      if (todo.completed === true) {
+        completedTodos++;
+      }
+    });
+    return {totalTodos: totalTodos, completedTodos: completedTodos};
+  },
   createTodo: function(todoText) {
     var alertBox = document.getElementById('alert-box');
     //  We trim the users todo input before adding it to our data array.
@@ -188,6 +199,13 @@ var view = {
       //  Adds the finalized <li> element as a child of the <ul> element.
       todosUl.appendChild(todoLi);
     }, this);
+    // Shows the toggleAll button if there's at least one todo. Hides it if there's no todos.
+    var toggleAllButton = document.querySelector('#toggle-all-btn');
+    if (todoModel.countTodos().totalTodos > 0) {
+      toggleAllButton.classList.remove('hide');
+    } else {
+      toggleAllButton.classList.add('hide');
+    }
   },
   toggleHide: function(selectedElement) {
     //  Toggles the hide class which shows or hides the element being passed in.
