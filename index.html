@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Todo List App</title>
-    <!--css file links -->
+  <!--css file links -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -11,13 +11,13 @@
   <div class="todo-container">
     <h1>Todo List</h1>
     <div class="main-section">
-      <div>
-        <button onclick="controller.toggleAll()">^</button>
+      <div class="todos-create-box">
+        <button class="toggle-all-btn" onclick="controller.toggleAll()">^</button>
         <input id="createTodoTextInput" type="text" onkeyup="controller.createTodoEntered()">
-        <button onclick="controller.createTodo()">+</button>
+        <button class="create-todo-btn" onclick="controller.createTodo()">+</button>
         <div id="alert-box"></div>
       </div>
-      <div>
+      <div class="todos-view-box">
         <ul></ul>
       </div>
     </div>
