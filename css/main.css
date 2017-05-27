@@ -1,14 +1,16 @@
 #createTodoTextInput {
-/*  float: left;*/
+  border-radius: 5px;
   width: 120px;
   padding: 5px;
 }
 
 #create-todo-btn {
+  border-radius: 5px;
   padding: 7px;
 }
 
 #toggle-all-btn {
+  border-radius: 5px;
   padding: 7px;
 }
 
@@ -17,7 +19,9 @@
 }
 
 .todo-container {
-  height: 600px;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: auto;
   width: 300px;
   text-align: center;
   margin: 20px auto;
@@ -46,6 +50,7 @@
 }
 
 .updateBox {
+  border-radius: 5px;
   margin-left: 5px;
   min-width: 140px;
 }
