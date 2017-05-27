@@ -1,23 +1,31 @@
 #createTodoTextInput {
-/*  float: left;*/
+  position: relative;
+  border-radius: 5px;
   width: 120px;
   padding: 5px;
 }
 
 #create-todo-btn {
+  position: absolute;
+  margin-top: -2px;
+  margin-left: 5px;
+  border-radius: 5px;
   padding: 7px;
 }
 
 #toggle-all-btn {
+  border-radius: 5px;
   padding: 7px;
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .todo-container {
-  height: 600px;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: auto;
   width: 300px;
   text-align: center;
   margin: 20px auto;
@@ -37,17 +45,25 @@
   text-align: left;
 }
 
+.todo-check-box {
+  float: left;
+}
+
 .todos-strikethrough {
   text-decoration: line-through;
 }
 
 .todoLabel {
+  display: inline-block;
+  overflow-wrap: break-word;
+  width: 105px;
   margin-left: 5px;
 }
 
 .updateBox {
+  border-radius: 5px;
   margin-left: 5px;
-  min-width: 140px;
+  width: 105px;
 }
 
 .deleteButton {
@@ -58,7 +74,6 @@ ul {
   list-style: none;
   padding: 0;
 }
-
 
 * {
 /*  border: 1px dashed black;*/
