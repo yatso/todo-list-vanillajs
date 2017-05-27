@@ -1,10 +1,14 @@
 #createTodoTextInput {
+  position: relative;
   border-radius: 5px;
   width: 120px;
   padding: 5px;
 }
 
 #create-todo-btn {
+  position: absolute;
+  margin-top: -2px;
+  margin-left: 5px;
   border-radius: 5px;
   padding: 7px;
 }
