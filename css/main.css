@@ -1,17 +1,39 @@
+#createTodoTextInput {
+/*  float: left;*/
+  width: 120px;
+  padding: 5px;
+}
+
+#create-todo-btn {
+  padding: 7px;
+}
+
+#toggle-all-btn {
+  padding: 7px;
+}
+
 .hide {
   display: none;
 }
 
 .todo-container {
   height: 600px;
-  width: 400px;
+  width: 300px;
   text-align: center;
   margin: 20px auto;
 }
 
 .main-section {
-  width: 300px;
+  width: 200px;
   margin: 0 auto;
+  text-align: left;
+}
+
+.todos-create-box {
+  text-align: center;
+}
+
+.todos-view-box {
   text-align: left;
 }
 
@@ -19,14 +41,26 @@
   text-decoration: line-through;
 }
 
+.todoLabel {
+  margin-left: 5px;
+}
+
+.updateBox {
+  margin-left: 5px;
+  min-width: 140px;
+}
+
+.deleteButton {
+  float: right;
+}
+
 ul {
   list-style: none;
   padding: 0;
 }
 
-/*
 
 * {
- border: 1px dashed black;
+/*  border: 1px dashed black;*/
+  font-family: sans-serif;
 }
-*/
