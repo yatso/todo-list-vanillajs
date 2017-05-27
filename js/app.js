@@ -222,7 +222,7 @@ var view = {
   },
   createDeleteButton: function() {
     var deleteButton = document.createElement('button');
-    deleteButton.textContent = 'X';
+    deleteButton.textContent = 'X Delete';
     deleteButton.className = 'deleteButton';
     return deleteButton;
   },
