@@ -151,7 +151,9 @@ var view = {
       //  Builds the checkbox
       var toggleCheckbox = document.createElement('input');
       toggleCheckbox.type = 'checkbox';
+      toggleCheckbox.classList.add('todo-check-box');
       toggleCheckbox.setAttribute('onchange', 'controller.toggleCompleted(this)');
+      
       //  Builds the updateBox
       var updateBox = document.createElement('input');
       updateBox.classList.add('updateBox','hide');

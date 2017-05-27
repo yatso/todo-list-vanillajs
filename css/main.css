@@ -15,7 +15,7 @@
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .todo-container {
@@ -41,18 +41,25 @@
   text-align: left;
 }
 
+.todo-check-box {
+  float: left;
+}
+
 .todos-strikethrough {
   text-decoration: line-through;
 }
 
 .todoLabel {
+  display: inline-block;
+  overflow-wrap: break-word;
+  width: 105px;
   margin-left: 5px;
 }
 
 .updateBox {
   border-radius: 5px;
   margin-left: 5px;
-  min-width: 140px;
+  width: 105px;
 }
 
 .deleteButton {
