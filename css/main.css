@@ -1,81 +1,81 @@
 #createTodoTextInput {
-  position: relative;
-  border-radius: 5px;
-  width: 120px;
-  padding: 5px;
+	position: relative;
+	border-radius: 5px;
+	width: 120px;
+	padding: 5px;
 }
 
 #create-todo-btn {
-  position: absolute;
-  margin-top: -2px;
-  margin-left: 5px;
-  border-radius: 5px;
-  padding: 7px;
+	position: absolute;
+	margin-top: -2px;
+	margin-left: 5px;
+	border-radius: 5px;
+	padding: 7px;
 }
 
 #toggle-all-btn {
-  border-radius: 5px;
-  padding: 7px;
+	border-radius: 5px;
+	padding: 7px;
 }
 
 .hide {
-  display: none !important;
+	display: none !important;
 }
 
 .todo-container {
-  border: 1px solid black;
-  border-radius: 5px;
-  height: auto;
-  width: 300px;
-  text-align: center;
-  margin: 20px auto;
+	border: 1px solid black;
+	border-radius: 5px;
+	height: auto;
+	width: 300px;
+	text-align: center;
+	margin: 20px auto;
 }
 
 .main-section {
-  width: 200px;
-  margin: 0 auto;
-  text-align: left;
+	width: 200px;
+	margin: 0 auto;
+	text-align: left;
 }
 
 .todos-create-box {
-  text-align: center;
+	text-align: center;
 }
 
 .todos-view-box {
-  text-align: left;
+	text-align: left;
 }
 
 .todo-check-box {
-  float: left;
+	float: left;
 }
 
 .todos-strikethrough {
-  text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 .todoLabel {
-  display: inline-block;
-  overflow-wrap: break-word;
-  width: 105px;
-  margin-left: 5px;
+	display: inline-block;
+	overflow-wrap: break-word;
+	width: 105px;
+	margin-left: 5px;
 }
 
 .updateBox {
-  border-radius: 5px;
-  margin-left: 5px;
-  width: 105px;
+	border-radius: 5px;
+	margin-left: 5px;
+	width: 105px;
 }
 
 .deleteButton {
-  float: right;
+	float: right;
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+	list-style: none;
+	padding: 0;
 }
 
 * {
-/*  border: 1px dashed black;*/
-  font-family: sans-serif;
+	/*  border: 1px dashed black;*/
+	font-family: sans-serif;
 }

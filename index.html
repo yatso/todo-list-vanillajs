@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Your Todo List</title>
-  <!--css file links -->
-  <link rel="stylesheet" href="css/main.css">
+	<title>Your Todo List</title>
+	<!--css file links -->
+	<link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-<!-- Primary Page Layout
+	<!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="todo-container">
-    <h1>Your Todo List</h1>
-    <div class="main-section">
-      <div class="todos-create-box">
-        <input id="createTodoTextInput" type="text" placeholder="What you gotta do?" onkeyup="controller.createTodoEntered()">
-        <button id="create-todo-btn" class="hide" onclick="controller.createTodo()">+ Add</button>
-        <div id="alert-box"></div>
-      </div>
-      <div class="todos-view-box">
-        <br>
-        <div>
-          <button id="toggle-all-btn" class="hide" onclick="controller.toggleAll()">✓ All</button>
-        </div>
-        <ul></ul>
-      </div>
-    </div>
-  </div>
-  <!--javascript file links -->
-  <script src="js/app.js"></script>
-<!-- End Document
+	<div class="todo-container">
+		<h1>Your Todo List</h1>
+		<div class="main-section">
+			<div class="todos-create-box">
+				<input id="createTodoTextInput" type="text" placeholder="What you gotta do?" onkeyup="controller.createTodoEntered()">
+				<button id="create-todo-btn" class="hide" onclick="controller.createTodo()">+ Add</button>
+				<div id="alert-box"></div>
+			</div>
+			<div class="todos-view-box">
+				<br>
+				<div>
+					<button id="toggle-all-btn" class="hide" onclick="controller.toggleAll()">✓ All</button>
+				</div>
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+	<!--javascript file links -->
+	<script src="js/app.js"></script>
+	<!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>
