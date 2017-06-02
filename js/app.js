@@ -201,7 +201,7 @@ var view = {
             //  Add the text box with todos text after the todo text node.
             todoLi.appendChild(updateBox);
             // Add the mobile edit button here
-            todoLi.appendChild(mobileEditButton);
+            // todoLi.appendChild(mobileEditButton);
             //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
             todoLi.appendChild(this.createDeleteButton());
             //  Adds the finalized <li> element as a child of the <ul> element.
@@ -229,7 +229,7 @@ var view = {
     },
     createDeleteButton: function () {
         var deleteButton = document.createElement('button');
-        deleteButton.textContent = 'X Delete';
+        deleteButton.textContent = 'x';
         deleteButton.className = 'deleteButton';
         return deleteButton;
     },
@@ -240,7 +240,7 @@ var view = {
             //  Get the element that was clicked on.
             var elementClicked = event.target;
 
-            //  Check if elementClicked is a delete button.
+            //  Check if elementClicked is a delete button.//  Global variables declared for enter and escape keys.
             if (elementClicked.className === 'deleteButton') {
                 controller.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
