@@ -85,6 +85,10 @@ var controller = {
     createTodoEntered: function () {
         var inputElement = document.getElementById("createTodoTextInput");
         if (inputElement.value && event.keyCode === enter_key) {
+            // On mobile, defocuses input to hide soft keyboard so user can see their entered todo item.
+            if (todoModel.isMobileDevice()) {
+                inputElement.blur();
+            }
             this.createTodo();
         }
         view.displayTodos();
@@ -204,8 +208,8 @@ var view = {
             // todoLi.appendChild(mobileEditButton);
             //  Adds the delete button as a child to the created <li> element by running the createDeleteButton method.
             todoLi.appendChild(this.createDeleteButton());
-            //  Adds the finalized <li> element as a child of the <ul> element.
-            todosUl.appendChild(todoLi);
+            // Adds the finalized <li> element in the beginning of the <ul> as a child of the <ul> element.
+            todosUl.insertBefore(todoLi, todosUl.childNodes[0]);
         }, this);
         //  Shows the toggleAll button if there's at least one todo. Hides it if there's no todos.
         var toggleAllButton = document.querySelector('#toggle-all-btn');
