@@ -85,6 +85,10 @@ var controller = {
     createTodoEntered: function () {
         var inputElement = document.getElementById("createTodoTextInput");
         if (inputElement.value && event.keyCode === enter_key) {
+            // On mobile, defocuses input to hide soft keyboard so user can see their entered todo item.
+            if (todoModel.isMobileDevice()) {
+                inputElement.blur();
+            }
             this.createTodo();
         }
         view.displayTodos();
