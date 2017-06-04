@@ -84,6 +84,7 @@ button:focus {
     transition: all .3s linear;
     margin-left: 3.5vw;
     color: white;
+    font-weight: 100;
 }
 
 #toggle-all-btn::before {
