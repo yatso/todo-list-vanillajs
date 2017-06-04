@@ -76,7 +76,7 @@ button:focus {
     cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
-    background: #34495E;
+    background: #01579B;
     border-radius: 1px;
     width: 30px;
     height: 30px;
@@ -93,7 +93,7 @@ button:focus {
 }
 
 #toggle-all-btn:checked {
-    background-color: #2ECC71;
+    background-color: #03A9F4;
 }
 
 #toggle-all-btn:focus {
@@ -148,7 +148,7 @@ button:focus {
     cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
-    background: #34495E;
+    background: #01579B;
     border-radius: 1px;
     width: 30px;
     height: 30px;
@@ -158,7 +158,7 @@ button:focus {
 }
 
 .todo-check-box:checked {
-    background-color: #2ECC71;
+    background-color: #03A9F4;
 }
 
 .todo-check-box:focus {
@@ -168,6 +168,7 @@ button:focus {
 
 .todos-strikethrough {
     text-decoration: line-through;
+    color: #E0E0E0 !important; /*light grey*/
 }
 
 .todoLabel {
