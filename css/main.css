@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i');
-
 * {
-    /*     border: 1px dashed black; */
+    /*       border: 1px dashed black; */
 }
 
 html {
@@ -27,6 +26,7 @@ li {
     list-style: none;
     margin: 1vw;
     padding: 2vw;
+    padding-left: 0;
 }
 
 input:focus,
@@ -43,10 +43,11 @@ button:focus {
     border-bottom: 1px solid #424242;
     display: inline;
     max-width: 60%;
-    margin-left: 5px;
+    margin-left: calc(1rem);
     padding: 10px;
     text-align: center;
-    font-size: 5vw;
+    /*    font-size: 5vw;*/
+    font-size: calc(.75rem + .5vw);
     font-family: 'Roboto Mono';
 }
 
@@ -56,7 +57,6 @@ button:focus {
 }
 
 #create-todo-btn {
-    /*   position: absolute; */
     display: inline-block;
     border: none;
     appearance: none;
@@ -65,8 +65,7 @@ button:focus {
     padding: 0 0 0 0;
     vertical-align: bottom;
     background-color: transparent;
-    /*   border: 1px solid black; */
-    font-size: 10vw;
+    font-size: calc(2rem + .5vw);
     color: #424242;
     /* dark grey */
 }
@@ -78,11 +77,11 @@ button:focus {
     appearance: none;
     background: #01579B;
     border-radius: 1px;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     border-width: 0;
     transition: all .3s linear;
-    margin-left: 3.5vw;
+    margin-left: 1vw;
     color: white;
     font-weight: 100;
 }
@@ -103,7 +102,6 @@ button:focus {
 }
 
 .title-div {
-    /*   border: 1px dashed black; */
     margin: 0;
     padding: 20px;
     background: #03A9F4;
@@ -112,10 +110,9 @@ button:focus {
 }
 
 .title-div .title {
-    /*   border: 1px dashed red; */
     color: #80D8FF;
     /* lighter blue */
-    font-size: 10vw;
+    font-size: calc(1.5rem + .5vw);
     font-weight: 100;
 }
 
@@ -151,11 +148,12 @@ button:focus {
     appearance: none;
     background: #01579B;
     border-radius: 1px;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     border-width: 0;
     transition: all .3s linear;
-    margin-right: 2vw;
+    margin: 0;
+    margin-right: calc(1rem + .5vw);
 }
 
 .todo-check-box:checked {
@@ -169,16 +167,17 @@ button:focus {
 
 .todos-strikethrough {
     text-decoration: line-through;
-    color: #E0E0E0 !important; /*light grey*/
+    color: #E0E0E0 !important;
+    /*light grey*/
 }
 
 .todoLabel {
     display: inline-block;
     vertical-align: middle;
     overflow-wrap: break-word;
-    max-width: 45vw;
+    max-width: calc(60vw + 1vw);
     margin: 0 5px;
-    font-size: 5vw;
+    font-size: calc(1rem + .5vw);
     color: #424242;
     /* darkest grey */
 }
@@ -191,9 +190,9 @@ button:focus {
     vertical-align: middle;
     margin-left: 5px;
     min-width: 50%;
-    max-width: 45vw;
+    max-width: calc(50vw + 1vw);
     padding: 10px;
-    font-size: 5vw;
+    font-size: calc(1rem + .5vw);
     color: #424242;
     /* darkest grey */
 }
@@ -204,8 +203,7 @@ button:focus {
     border: none;
     vertical-align: middle;
     background-color: transparent;
-    /*   border: 1px solid black; */
-    font-size: 6vw;
+    font-size: calc(1rem + 1vw);
     margin-top: 0;
     padding: 0;
     color: #E0E0E0;
@@ -223,13 +221,14 @@ button:focus {
 
 .version-number {
     color: lightskyblue;
-    font-size: 2vw;
+    font-size: calc(.5rem + .5vw);
 }
 
 
 /* Not mobile, Desktop View */
 
-
-/* @media not screen and (-webkit-device-pixel-ratio:3) {}
-
- */
+@media not screen and (-webkit-device-pixel-ratio:3) {
+    .app-container {
+        /*     max-width: 75vw; */
+    }
+}
