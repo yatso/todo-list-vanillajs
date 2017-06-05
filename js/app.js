@@ -184,7 +184,7 @@ var view = {
             updateBox.setAttribute("onfocusout", "controller.updateFocusOut(this)");
             //  Builds the todo item text label
             var todoItemLabel = document.createElement("label");
-            todoItemLabel.setAttribute("ondblclick", "controller.updatingMode(this)");
+            todoItemLabel.setAttribute("onclick", "controller.updatingMode(this)");
             todoItemLabel.textContent = todo.todoText;
             todoItemLabel.classList.add("todoLabel");
             //  Builds the mobile edit button
