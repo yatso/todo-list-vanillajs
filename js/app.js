@@ -131,6 +131,7 @@ var controller = {
         );
         view.toggleHide(todoLabelElement);
         view.toggleHide(updateBoxElement);
+        updateBoxElement.focus();
     },
     mobileUpdatingMode: function (editButtonElement) {
         var updateBoxElement = editButtonElement.parentNode.querySelector(
