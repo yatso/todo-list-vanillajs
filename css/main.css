@@ -137,7 +137,7 @@ button:focus {
 }
 
 .tutorial-div {
-    border-left: 5rem solid grey;
+    border-left: calc(2rem + 4vw) solid grey;
     border-radius: 3px;
     margin: .5vw;
     padding: 3vw 7vw;
@@ -167,7 +167,7 @@ button:focus {
     display: block;
     color: darkgrey;
     font-size: .8rem;
-    margin-left: 1.25vw;
+    margin-left: 1rem;
     font-family: 'Roboto', Helvetica, sans-serif;
 }
 
