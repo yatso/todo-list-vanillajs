@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i');
 * {
-    /*   border: 1px dashed black; */
+/*       border: 1px dashed black; */
 }
 
 html {
@@ -37,6 +37,13 @@ select:focus,
 textarea:focus,
 button:focus {
     outline: none;
+}
+
+#tutorial-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 #alert-box {
@@ -108,6 +115,11 @@ button:focus {
     box-shadow: none;
 }
 
+.app-container {
+    max-width: 100%;
+    text-align: center;
+}
+
 .title-div {
     margin: .5vw;
     padding: 20px;
@@ -124,9 +136,39 @@ button:focus {
     font-weight: 100;
 }
 
-.app-container {
-    max-width: 100%;
-    text-align: center;
+.tutorial-div {
+    border-left: 5rem solid grey;
+    border-radius: 3px;
+    margin: .5vw;
+    padding: 3vw 7vw;
+    text-align: left;
+}
+
+.tutorial-div h2 {
+    color: #03A9F4;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.feature-div {
+    margin: 1vw;
+}
+
+.tutorial-div .feature-title {
+    display: block;
+    color: #424242;
+    font-weight: 500;
+    font-size: .75rem;
+}
+
+.tutorial-div .feature-text {
+    display: block;
+    color: darkgrey;
+    font-size: .8rem;
+    margin-left: 1.25vw;
+    font-family: 'Roboto', Helvetica, sans-serif;
 }
 
 .content-div {

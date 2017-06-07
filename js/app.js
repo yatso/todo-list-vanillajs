@@ -247,6 +247,10 @@ var view = {
         //  Toggles the hide class which shows or hides the element being passed in.
         selectedElement.classList.toggle("hide");
     },
+    toggleTutorialDiv: function () {
+        var tutorialDiv = document.querySelector('.tutorial-div');
+        this.toggleHide(tutorialDiv);
+    },
     createDeleteButton: function () {
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "x";
