@@ -121,7 +121,7 @@ button:focus {
 }
 
 .title-div {
-    margin: .5vw;
+    margin: .25vw;
     padding: 20px;
     border-radius: 3px;
     background: #03A9F4;
@@ -139,7 +139,7 @@ button:focus {
 .tutorial-div {
     border-left: calc(2rem + 4vw) solid grey;
     border-radius: 3px;
-    margin: .5vw;
+    margin: .25vw;
     padding: 3vw 7vw;
     text-align: left;
 }
