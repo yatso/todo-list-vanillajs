@@ -153,7 +153,7 @@ button:focus {
 }
 
 .feature-div {
-    margin: 1vw;
+    margin: 3vw;
 }
 
 .tutorial-div .feature-title {
@@ -161,6 +161,7 @@ button:focus {
     color: #424242;
     font-weight: 500;
     font-size: .75rem;
+    margin-bottom: 1vw;
 }
 
 .tutorial-div .feature-text {
