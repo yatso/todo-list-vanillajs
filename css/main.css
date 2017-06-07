@@ -41,9 +41,10 @@ button:focus {
 
 #tutorial-btn {
     background-color: transparent;
-    color: white;
-    border: 1px solid white;
-    border-radius: 10px;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 100%;
+    font-size: 1rem;
 }
 
 #alert-box {
