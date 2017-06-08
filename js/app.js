@@ -131,6 +131,7 @@ var controller = {
         );
         view.toggleHide(todoLabelElement);
         view.toggleHide(updateBoxElement);
+        updateBoxElement.focus();
     },
     mobileUpdatingMode: function (editButtonElement) {
         var updateBoxElement = editButtonElement.parentNode.querySelector(
@@ -245,6 +246,10 @@ var view = {
     toggleHide: function (selectedElement) {
         //  Toggles the hide class which shows or hides the element being passed in.
         selectedElement.classList.toggle("hide");
+    },
+    toggleTutorialDiv: function () {
+        var tutorialDiv = document.querySelector('.tutorial-div');
+        this.toggleHide(tutorialDiv);
     },
     createDeleteButton: function () {
         var deleteButton = document.createElement("button");
