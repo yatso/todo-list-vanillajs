@@ -80,13 +80,13 @@ var todoModel = {
 //  controller object represents the controller of this app.
 var controller = {
     createTodo: function () {
-        var createTodoTextInput = document.getElementById("createTodoTextInput");
+        var createTodoTextInput = document.getElementById("create-todo-input");
         todoModel.createTodo(createTodoTextInput.value);
         createTodoTextInput.value = "";
         view.displayTodos();
     },
     createTodoEntered: function () {
-        var inputElement = document.getElementById("createTodoTextInput");
+        var inputElement = document.getElementById("create-todo-input");
         if (inputElement.value && event.keyCode === enter_key) {
             // On mobile, defocuses input to hide soft keyboard so user can see their entered todo item.
             if (todoModel.isMobileDevice()) {
@@ -127,7 +127,7 @@ var controller = {
     },
     updatingMode: function (todoLabelElement) {
         var updateBoxElement = todoLabelElement.parentNode.querySelector(
-            ".updateBox"
+            ".update-Box"
         );
         view.toggleHide(todoLabelElement);
         view.toggleHide(updateBoxElement);
@@ -135,10 +135,10 @@ var controller = {
     },
     mobileUpdatingMode: function (editButtonElement) {
         var updateBoxElement = editButtonElement.parentNode.querySelector(
-            ".updateBox"
+            ".update-Box"
         );
         var todoLabelElement = editButtonElement.parentNode.querySelector(
-            ".todoLabel"
+            ".todo-label"
         );
         view.toggleHide(todoLabelElement);
         view.toggleHide(updateBoxElement);
@@ -178,7 +178,7 @@ var view = {
 
             //  Builds the updateBox
             var updateBox = document.createElement("input");
-            updateBox.classList.add("updateBox", "hide");
+            updateBox.classList.add("update-Box", "hide");
             updateBox.type = "text";
             updateBox.value = todo.todoText;
             updateBox.setAttribute("onkeyup", "controller.updateKeyup(this)");
@@ -187,7 +187,7 @@ var view = {
             var todoItemLabel = document.createElement("label");
             todoItemLabel.setAttribute("onclick", "controller.updatingMode(this)");
             todoItemLabel.textContent = todo.todoText;
-            todoItemLabel.classList.add("todoLabel");
+            todoItemLabel.classList.add("todo-label");
             //  Builds the mobile edit button
             var mobileEditButton = document.createElement("button");
             mobileEditButton.setAttribute(
@@ -236,7 +236,7 @@ var view = {
         }
         //  Shows the create todo button if user types something. Once user removes their input or enter a new todo, it will disappear.
         var createTodoButton = document.querySelector("#create-todo-btn");
-        var inputElement = document.getElementById("createTodoTextInput");
+        var inputElement = document.getElementById("create-todo-input");
         if (inputElement.value) {
             createTodoButton.classList.remove("hide");
         } else {
@@ -254,7 +254,7 @@ var view = {
     createDeleteButton: function () {
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "x";
-        deleteButton.className = "deleteButton";
+        deleteButton.className = "delete-btn";
         return deleteButton;
     },
     setUpEventListeners: function () {
@@ -265,7 +265,7 @@ var view = {
             var elementClicked = event.target;
 
             //  Check if elementClicked is a delete button.//  Global variables declared for enter and escape keys.
-            if (elementClicked.className === "deleteButton") {
+            if (elementClicked.className === "delete-btn") {
                 controller.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
         });
