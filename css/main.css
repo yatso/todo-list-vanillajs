@@ -56,7 +56,7 @@ button:focus {
     /* material red */
 }
 
-#createTodoTextInput {
+#create-todo-input {
     border: none;
     border-radius: 0;
     border-bottom: 1px solid #424242;
@@ -69,7 +69,7 @@ button:focus {
     font-family: 'Roboto Mono';
 }
 
-#createTodoTextInput:focus {
+#create-todo-input:focus {
     border-bottom: 3px solid #03A9F4;
     /* sky blue */
 }
@@ -228,7 +228,7 @@ button:focus {
     /*light grey*/
 }
 
-.todoLabel {
+.todo-label {
     display: inline-block;
     vertical-align: middle;
     overflow-wrap: break-word;
@@ -239,7 +239,7 @@ button:focus {
     /* darkest grey */
 }
 
-.updateBox {
+.update-Box {
     display: inline-block;
     border: none;
     border-bottom: 3px solid #03A9F4;
@@ -253,7 +253,7 @@ button:focus {
     /* darkest grey */
 }
 
-.deleteButton {
+.delete-btn {
     float: right;
     display: inline-block;
     border: none;
@@ -266,7 +266,7 @@ button:focus {
     /* light grey */
 }
 
-.deleteButton:hover {
+.delete-btn:hover {
     color: #424242;
     /* darkest grey */
 }
