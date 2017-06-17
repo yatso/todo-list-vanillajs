@@ -5,9 +5,10 @@
 
 A fully-functional, mobile-first responsive CRUD (Create/Read/Update/Delete) App. Built from scratch w/vanilla HTML, CSS, JavaScript without the help of any libraries or frameworks. No bootstrap, no jQuery, no Angular, just plain old JavaScript. It's lightweight, fast, & beautiful under the hood. Try it out! https://yatso.github.io/todo-list-vanillajs/
 
+
 ## Product Requrements Spreadsheet
 
-Live spreadsheet Where I keep track of features/bug fixes for this project
+Live spreadsheet of where I keep track of features/bug fixes for this project
 https://docs.google.com/spreadsheets/d/1FBzzkegbim7s9JL9w2T45eQT4UU22N3eE4hX197ILSg/edit?usp=sharing
 
 ## Authors
