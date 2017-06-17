@@ -1,8 +1,4 @@
-# todo-list-vanillajs
-todo-list built in html/css/javascript 
-
-Live Demo: https://yatso.github.io/todo-list-vanillajs/
-
+# Live Demo: https://yatso.github.io/todo-list-vanillajs/
 
 # Your Todo List
 
