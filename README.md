@@ -1,6 +1,3 @@
-<!-- {{/*
-Usage: {{% a_blank "TITLE" "URL" %}}
-*/}}-->
 <a target="_blank" href="{{ .Get 1 }}">{{ .Get 0 | markdownify }}</a> <i class="fa fa-external-link"></i>
 
 
