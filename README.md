@@ -1,6 +1,3 @@
-<a href="http://example.com" target="_blank">http://example.com</a>
-
-
 ## Live Demo: https://yatso.github.io/todo-list-vanillajs/
 
 
