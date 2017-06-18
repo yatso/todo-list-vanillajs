@@ -1,4 +1,4 @@
-<img src="images/your-todo-list-screenshot.png">
+<img src="images/your-todo-list-screenshot.png" width="200px">
 
 ## Live Demo: https://yatso.github.io/todo-list-vanillajs/
 
