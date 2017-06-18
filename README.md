@@ -1,3 +1,5 @@
+<img src="images/your-todo-list-screenshot.png">
+
 ## Live Demo: https://yatso.github.io/todo-list-vanillajs/
 
 
