@@ -77,85 +77,6 @@ var todoModel = {
     }
 };
 
-//  controller object represents the controller of this app.
-var controller = {
-    createTodo: function () {
-        var createTodoTextInput = document.getElementById("create-todo-input");
-        todoModel.createTodo(createTodoTextInput.value);
-        createTodoTextInput.value = "";
-        view.displayTodos();
-    },
-    createTodoEntered: function () {
-        var inputElement = document.getElementById("create-todo-input");
-        if (inputElement.value && event.keyCode === enter_key) {
-            // On mobile, defocuses input to hide soft keyboard so user can see their entered todo item.
-            if (todoModel.isMobileDevice()) {
-                inputElement.blur();
-            }
-            this.createTodo();
-        }
-        view.displayTodos();
-    },
-    updateKeyup: function (updateInputElement) {
-        var id = updateInputElement.parentNode.getAttribute("id");
-        var newUpdateInputValue = updateInputElement.value;
-        if (updateInputElement.value && event.keyCode === enter_key) {
-            this.changeTodo(id, newUpdateInputValue);
-        }
-        if (event.keyCode === esc_key) {
-            //  Very important line. If the updateInputElement.value is not reset to the original value, then updateFocusOut method would still run and update the data even when esc key is pressed.
-            updateInputElement.value = todoModel.todos[id].todoText;
-            view.displayTodos();
-        }
-    },
-    updateFocusOut: function (updateInputElement) {
-        var id = updateInputElement.parentNode.getAttribute("id");
-        var newUpdateInputValue = updateInputElement.value;
-        if (updateInputElement.value) {
-            this.changeTodo(id, newUpdateInputValue);
-        } else {
-            controller.deleteTodo(id);
-        }
-    },
-    changeTodo: function (id, value) {
-        todoModel.changeTodo(id, value);
-        view.displayTodos();
-    },
-    deleteTodo: function (position) {
-        todoModel.deleteTodo(position);
-        view.displayTodos();
-    },
-    updatingMode: function (todoLabelElement) {
-        var updateBoxElement = todoLabelElement.parentNode.querySelector(
-            ".update-Box"
-        );
-        view.toggleHide(todoLabelElement);
-        view.toggleHide(updateBoxElement);
-        updateBoxElement.focus();
-    },
-    mobileUpdatingMode: function (editButtonElement) {
-        var updateBoxElement = editButtonElement.parentNode.querySelector(
-            ".update-Box"
-        );
-        var todoLabelElement = editButtonElement.parentNode.querySelector(
-            ".todo-label"
-        );
-        view.toggleHide(todoLabelElement);
-        view.toggleHide(updateBoxElement);
-    },
-    //  The controller for the todo item toggle. Takes the argument 'this' from the toggle check box in the DOM.
-    toggleCompleted: function (toggleElement) {
-        //  Gets the id from the parent (<li>) of the toggle check box and passes it to the toggleCompleted in the model. toggleCompleted switches the boolean value in the actual todo item object.
-        todoModel.toggleCompleted(toggleElement.parentNode.getAttribute("id"));
-        //  Runs the view.displayTodos() to update the DOM so the user can see the changes.
-        view.displayTodos();
-    },
-    toggleAll: function () {
-        todoModel.toggleAll();
-        view.displayTodos();
-    }
-};
-
 //  view object represents the view of this app.
 var view = {
     displayTodos: function () {
@@ -269,6 +190,89 @@ var view = {
                 controller.deleteTodo(parseInt(elementClicked.parentNode.id));
             }
         });
+    }
+};
+
+//  controller object represents the controller of this app.
+var controller = {
+    createTodo: function () {
+        var createTodoTextInput = document.getElementById("create-todo-input");
+        todoModel.createTodo(createTodoTextInput.value);
+        createTodoTextInput.value = "";
+        view.displayTodos();
+    },
+    createTodoEntered: function () {
+        var inputElement = document.getElementById("create-todo-input");
+        if (inputElement.value && event.keyCode === enter_key) {
+            // On mobile, defocuses input to hide soft keyboard so user can see their entered todo item.
+            if (todoModel.isMobileDevice()) {
+                inputElement.blur();
+            }
+            this.createTodo();
+        }
+        view.displayTodos();
+    },
+    updateKeyup: function (updateInputElement) {
+        // Grabs id attribute from parent <li> element
+        var id = updateInputElement.parentNode.getAttribute("id");
+        // Grabs the new input value that the user entered.
+        var newUpdateInputValue = updateInputElement.value;
+        // If the there's something in the update box and enter key was pressed, then run the changeTodo method. 
+        if (updateInputElement.value && event.keyCode === enter_key) {
+            this.changeTodo(id, newUpdateInputValue);
+        }
+        // If the esc key was pressed then we reset the value back to the original stored value in our todos array.
+        if (event.keyCode === esc_key) {
+            //  Very important line. If the updateInputElement.value is not reset to the original value, then updateFocusOut method would still run and update the data even when esc key is pressed.
+            updateInputElement.value = todoModel.todos[id].todoText;
+            view.displayTodos();
+        }
+    },
+    updateFocusOut: function (updateInputElement) {
+        var id = updateInputElement.parentNode.getAttribute("id");
+        var newUpdateInputValue = updateInputElement.value;
+        if (updateInputElement.value) {
+            this.changeTodo(id, newUpdateInputValue);
+        } else {
+            controller.deleteTodo(id);
+        }
+    },
+    changeTodo: function (id, value) {
+        todoModel.changeTodo(id, value);
+        view.displayTodos();
+    },
+    deleteTodo: function (position) {
+        todoModel.deleteTodo(position);
+        view.displayTodos();
+    },
+    updatingMode: function (todoLabelElement) {
+        var updateBoxElement = todoLabelElement.parentNode.querySelector(
+            ".update-Box"
+        );
+        view.toggleHide(todoLabelElement);
+        view.toggleHide(updateBoxElement);
+        updateBoxElement.focus();
+    },
+    mobileUpdatingMode: function (editButtonElement) {
+        var updateBoxElement = editButtonElement.parentNode.querySelector(
+            ".update-Box"
+        );
+        var todoLabelElement = editButtonElement.parentNode.querySelector(
+            ".todo-label"
+        );
+        view.toggleHide(todoLabelElement);
+        view.toggleHide(updateBoxElement);
+    },
+    //  The controller for the todo item toggle. Takes the argument 'this' from the toggle check box in the DOM.
+    toggleCompleted: function (toggleElement) {
+        //  Gets the id from the parent (<li>) of the toggle check box and passes it to the toggleCompleted in the model. toggleCompleted switches the boolean value in the actual todo item object.
+        todoModel.toggleCompleted(toggleElement.parentNode.getAttribute("id"));
+        //  Runs the view.displayTodos() to update the DOM so the user can see the changes.
+        view.displayTodos();
+    },
+    toggleAll: function () {
+        todoModel.toggleAll();
+        view.displayTodos();
     }
 };
 
