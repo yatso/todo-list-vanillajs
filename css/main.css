@@ -134,8 +134,7 @@ button:focus {
 }
 
 .title-div .title {
-    color: #80D8FF;
-    /* lighter blue */
+    color: #FFFFFF;
     font-size: calc(1.5rem + .5vw);
     font-weight: 100;
 }
@@ -277,7 +276,7 @@ button:focus {
 }
 
 .version-number {
-    color: lightskyblue;
+    color: #EEEEEE;
     font-size: calc(.5rem + .5vw);
 }
 
