@@ -52,8 +52,8 @@ button:focus {
 
 #alert-box {
     margin-left: 15%;
-    color: #f44336;
     /* material red */
+    color: #f44336;
 }
 
 #create-todo-input {
@@ -70,8 +70,8 @@ button:focus {
 }
 
 #create-todo-input:focus {
-    border-bottom: 3px solid #03A9F4;
     /* sky blue */
+    border-bottom: 3px solid #03A9F4;
 }
 
 #create-todo-btn {
@@ -84,8 +84,8 @@ button:focus {
     vertical-align: bottom;
     background-color: transparent;
     font-size: calc(2rem + .5vw);
-    color: #424242;
     /* dark grey */
+    color: #424242;
 }
 
 #toggle-all-btn {
@@ -128,8 +128,8 @@ button:focus {
     margin: .25vw;
     padding: 20px;
     border-radius: 3px;
-    background: #03A9F4;
     /* darker blue */
+    background: #03A9F4;
     text-align: center;
 }
 
@@ -223,8 +223,8 @@ button:focus {
 
 .todos-strikethrough {
     text-decoration: line-through;
-    color: #E0E0E0 !important;
     /*light grey*/
+    color: #E0E0E0 !important;
 }
 
 .todo-label {
@@ -234,8 +234,8 @@ button:focus {
     max-width: 70%;
     margin: 0 5px;
     font-size: calc(1rem + .5vw);
-    color: #424242;
     /* darkest grey */
+    color: #424242;
 }
 
 .update-Box {
@@ -248,8 +248,8 @@ button:focus {
     width: 60%;
     padding: 10px;
     font-size: calc(1rem + .5vw);
-    color: #424242;
     /* darkest grey */
+    color: #424242;
 }
 
 .delete-btn {
@@ -261,13 +261,13 @@ button:focus {
     font-size: calc(1rem + 1vw);
     margin-top: 0;
     padding: 0;
-    color: #E0E0E0;
     /* light grey */
+    color: #E0E0E0;
 }
 
 .delete-btn:hover {
-    color: #424242;
     /* darkest grey */
+    color: #424242;
 }
 
 .spacer {
@@ -276,7 +276,9 @@ button:focus {
 }
 
 .version-number {
-    color: #EEEEEE;
+    /* darkest grey */
+    color: #424242;
+    font-weight: 600;
     font-size: calc(.5rem + .5vw);
 }
 
