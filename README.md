@@ -14,6 +14,9 @@ A fully-functional, mobile-first responsive CRUD (Create/Read/Update/Delete) App
 Live spreadsheet of where I keep track of features/bug fixes for this project
 https://docs.google.com/spreadsheets/d/1FBzzkegbim7s9JL9w2T45eQT4UU22N3eE4hX197ILSg/edit?usp=sharing
 
+<a href="https://docs.google.com/spreadsheets/d/1FBzzkegbim7s9JL9w2T45eQT4UU22N3eE4hX197ILSg/edit?usp=sharing"><img src="images/todo-list-product-spreadsheet.png" width="550px">
+</a>
+
 ## Authors
 
 * **Yat So**  - [yatso](https://github.com/yatso)
