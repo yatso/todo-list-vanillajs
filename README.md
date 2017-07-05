@@ -4,6 +4,7 @@
 
 A mobile-first responsive CRUD (Create/Read/Update/Delete) App. Follows MVC (Model, View, Controller) Architecture. Built from scratch w/vanilla HTML, CSS, JavaScript without the help of any libraries or frameworks. No bootstrap, no jQuery, no Angular, just plain old JavaScript. It's lightweight, fast, & beautiful under the hood. Try it out!
 
+<hr>
 <a href="https://yatso.github.io/todo-list-vanillajs/"><img src="images/your-todo-list-screenshot.png" width="550px">
 </a>
 
